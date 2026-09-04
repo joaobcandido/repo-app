@@ -1,0 +1,20 @@
+name: App Main Orquestrador
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Permite rodar manualmente no GitHub
+
+jobs:
+  # 1. Chama o workflow no repo-nested
+  chama-nested:
+    uses: joaobcandido/repo-nested/.github/workflows/nested.yml@main
+    with:
+      ambiente: 'Produção'
+
+  # 2. Chama o workflow no repo-reusable APÓS o nested terminar
+  chama-reusable:
+    needs: chama-nested
+    uses: joaobcandido/repo-reusable/.github/workflows/reusable.yml@main
+    with:
+      versao: 'v2.5.0'
