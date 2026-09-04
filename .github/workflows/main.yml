@@ -7,7 +7,7 @@ on:
 
 jobs:
   # 1. Chama o workflow no repo-nested
-  nested:
+  build_delivery:
     uses: joaobcandido/repo-nested/.github/workflows/passos.yml@main
     with:
       ambiente: 'Produção'
