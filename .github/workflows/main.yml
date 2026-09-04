@@ -7,7 +7,7 @@ on:
 
 jobs:
   # 1. Chama o workflow no repo-nested
-  build_delivery:
+  build:
     name: build
     uses: joaobcandido/repo-nested/.github/workflows/passos.yml@main
     with:
